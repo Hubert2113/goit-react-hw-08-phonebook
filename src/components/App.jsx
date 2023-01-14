@@ -1,20 +1,27 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import {fetchContacts} from '../redux/operations';
-import PhonebookForm from './PhonebookForm/PhonebookForm';
-import ContactList from './ContactList/ContactList';
+import { Routes, Route } from 'react-router-dom';
+import { refreshUser } from '../redux/operations';
+import ContactsPage from '../pages/ContactsPage/ContactsPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import RegisterPage from '../pages/RegisterPage/RegisterPage';
+import Header from './Header/Header';
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (
     <>
-      <PhonebookForm />
-      <ContactList />
+      <Header />
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
     </>
   );
 };
