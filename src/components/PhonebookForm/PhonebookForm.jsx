@@ -47,6 +47,7 @@ const PhonebookForm = () => {
             type="submit"
             onClick={(ev) => {
               ev.preventDefault();
+              console.log(ev.target.element);
               if (!contacts.map((contact) => contact.name).includes(name)) {
                 dispatch(
                   addContact({

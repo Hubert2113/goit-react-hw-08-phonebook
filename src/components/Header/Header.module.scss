@@ -1,0 +1,9 @@
+.header{
+    display: flex;
+    height: 60px;
+    align-items: center;
+    box-shadow: 3px 3px 10px rgba(66, 68, 90, 1);
+    &Nav{
+        margin-left: 40px;
+    }
+}
